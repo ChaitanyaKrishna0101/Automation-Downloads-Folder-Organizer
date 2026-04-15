@@ -1,4 +1,7 @@
-📂 FileFlow
+-------------------------------Automation Downloads Folder Organizer----------------------------
+A Python tool that monitors the Downloads folder in real time and automatically organizes files into categories like Images, Documents, and Videos. It detects new files, classifies them, and moves them to the right folders, keeping your system clean without manual effort.
+
+Given Name: 📂 FileFlow
 👉 Let the system do the boring work
 
 Your Downloads folder gets messy very fast.
