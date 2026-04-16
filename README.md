@@ -29,7 +29,7 @@ Step 1: Clone Repository
 
 Bash
 git clone https://github.com/your-username/fileflow.git
-cd fileflow
+
 Step 2: Install Requirements
 
 Bash
