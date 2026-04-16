@@ -1,181 +1,69 @@
--------------------------------Automation Downloads Folder Organizer----------------------------
-A Python tool that monitors the Downloads folder in real time and automatically organizes files into categories like Images, Documents, and Videos. It detects new files, classifies them, and moves them to the right folders, keeping your system clean without manual effort.
+📂 FileFlow: Automated Downloads Organizer
+FileFlow is a robust Python-based background utility that monitors your system's Downloads folder in real-time. It leverages an intelligent classification engine to automatically sort incoming files into structured directories (Images, Documents, Videos, etc.), eliminating digital clutter without manual intervention.
 
-Given Name: 📂 FileFlow
-👉 Let the system do the boring work
+"Let the system do the boring work!"
 
-Your Downloads folder gets messy very fast.
-Files are everywhere. Finding one file becomes difficult.
+The Workflow:
+1. The system operates through a decoupled architecture to ensure stability and performance. Follow these points strictly for the intended experience:
+2. Monitoring: The engine.py process initializes a file system observer that watches for FileCreated or FileMoved events.
+3. Classification: Upon detection, the ai_classifier.py analyzes the file extension and metadata to determine its target category.
+4. Execution: The engine moves the file to the designated subfolder defined in config.json.
+5. Logging: Every transaction is recorded in automation.db and appended to automation.log for audit trails.
+6. Visualization: The Streamlit dashboard (app.py) queries the database to display real-time statistics and historical charts.
 
-FileFlow solves this problem.
-🧠 What this project actually does:
-Think of it like a small system running in the background.
-Whenever a file appears:
+🛠️ Setup & Installation
+Step 1: Clone Repository
 
-It checks the file
-Understands what type it is
-Moves it to the correct folder
+Bash
+git clone https://github.com/your-username/fileflow.git
+cd fileflow
+Step 2: Install Requirements
 
-That’s it. Simple and useful.
-
-Why this matters:
-No need to manually clean folders
-You find files faster
-Everything stays organized automatically
-
-⚙️ Setup
-Step 1: Download the project
-Download ZIP from GitHub
-Extract it anywhere (Desktop is fine)
-Step 2: Install requirements
-
-Open terminal inside the project folder and run:
-
+Bash
 pip install -r requirements.txt
-▶️ Running the project
+▶️ Execution Modes
+Method 1: Full Automation (Recommended)
+Terminal 1: Start Engine
 
-There are two ways to run this:
-
-✅ Method 1 (Recommended – Full Automation)
-
-👉 Use two terminals (this is how professionals usually run systems like this for better control and stability)
-
-Terminal 1 → Start Background Engine
+Bash
 python src/engine.py
+Goal: Runs the background service for real-time monitoring.
 
-👉 This runs the background system that watches and organizes files continuously
-👉 Keeping this separate helps you monitor logs and debug issues easily
+Terminal 2: Start Dashboard
 
-Terminal 2 → Start Dashboard
+Bash
 python -m streamlit run ui/app.py
+Goal: Launches the UI for manual control and analytics.
 
-👉 This opens the dashboard in your browser
-👉 Separating UI and engine prevents crashes and keeps things clean
+Method 2: Manual Control
+Single Command:
 
-⚡ Method 2 (Simple – Manual Control)
+Bash
 python -m streamlit run ui/app.py
+Goal: Fast testing without background automation.
 
-👉 Use this if you just want to test quickly
-👉 Not recommended for real usage, because automation won’t run in the background
+✅ Setup Complete: All steps are finished. Your FileFlow organizer is now active and ready to keep your system clean.
 
-🎮 How to Use (Important)
-🚀 Button: Scan & Detect Files
+Sidebar Controls:
+After opening the Streamlit dashboard, look at the left sidebar where you will find the two primary action buttons:
 
-👉 Click this when:
+1. Scan & Detect Files
+Purpose: It identifies and categorizes files only in the main directory.
+Speed: Very fast; ideal for organizing your most recent downloads immediately.
 
-You want a quick cleanup
-You just downloaded files
+2. Organize & Fix Files
+Purpose: It scans through every subfolder to find and fix misplaced files.
+Speed: Slower; used for periodic maintenance to ensure no file is left in the wrong place.
 
-👉 What it does:
+📁 Project Structure:
+1. src/engine.py       : The core automation engine (File Watchdog).
+2. src/ai_classifier.py: Logic for file type determination.
+3. src/config.json     : User-defined settings and folder paths.
+4. ui/app.py           : Streamlit-based graphical user interface.
+5. automation.db       : SQLite database for file history and logs.
 
-Scans only the main folder
-Organizes files instantly
-
-👉 Best practice:
-Use this for quick checks instead of running full cleanup every time
-
-🧹 Button: Organize & Fix Files
-
-👉 Click this when:
-
-Your folders are messy
-Files are inside subfolders
-
-👉 What it does:
-
-Scans all subfolders
-Finds misplaced files
-Organizes everything properly
-
-👉 Best practice:
-Use this occasionally (not every time) because it scans everything and may take longer
-
-📊 Dashboard
-
-After clicking buttons, you will see:
-
-Number of files processed
-Logs of what happened
-Charts showing file categories
-
-👉 If nothing updates → action didn’t run properly
-
-❗ Common Issues (Fix Fast)
-
-❌ Python not installed
-
-👉 Install from: https://www.python.org
-
-❌ Module error
-
-Run again: pip install -r requirements.txt
-
-❌ Files not moving / buttons not working
-
-Check:
-
-Correct folder path is set in config.json
-engine.py is running (for automatic mode)
-
-❌ Streamlit command not working
-
-👉 Use: python -m streamlit run ui/app.py
-
-❌ Database error
-
-👉 Click Scan & Detect Files once
-It will be created automatically
-
-📁 Project Files
-src/engine.py → runs the main automation and moves files
-src/ai_classifier.py → decides file type (image, pdf, doc, etc.)
-src/config.py → stores folder paths and rules
-src/config_store.py → saves and loads configuration
-src/db.py → handles database operations
-src/logger.py → logs all actions and events
-
-ui/app.py → dashboard UI (buttons, stats, charts)
-
-automation.db → stores file history and logs
-automation.log → stores runtime logs
-config.json → user settings (folders, rules)
-main.py → entry point (optional runner)
-requirements.txt → required libraries
-.gitignore → ignores unnecessary files
-
-⚠️ Important (Don’t Skip)
-engine.py → required for automatic file movement
-app.py → only handles UI and controls
-
-👉 Professional setup always keeps these separate
-Mixing both leads to:
-UI freezes
-Hard debugging
-Unstable behavior
-
-💡 Useful Tips (Real-World Usage):
-
-👉 Run the engine in one terminal and leave it running
-👉 Use the dashboard only when you need control or insights
-
-👉 Example:
-
-Terminal 1 → running all day (automation)
-Terminal 2 → open when needed (UI)
-
-👉 Start small:
-
-Test with a few files first
-Then use it on full folders
-⚡ Reality Check
-
-Most beginners:
-
-Run everything in one place ❌
-Don’t monitor logs ❌
-
-Better approach:
-
-Separate processes ✅
-Observe behavior ✅
-Control via UI when needed ✅
+Troubleshooting:
+1. Service Unresponsive: Ensure engine.py is running in a separate terminal if you expect real-time movement.
+2. Module Not Found    : Re-run pip install -r requirements.txt to ensure all libraries are in your environment.
+3. Permission Denied   : Ensure the application has read/write access to your designated Downloads folder.
+4. Database Error      : Trigger a "Scan & Detect" action via the UI to re-initialize the automation.db file.
