@@ -28,12 +28,11 @@ After: Files are sorted into clean folders.
 
 Step 1: Clone Repository
 
-Bash
 git clone https://github.com/your-username/fileflow.git
 
 Step 2: Install Requirements
 
-Bash
+
 pip install -r requirements.txt
 
 ## ▶️ Execution Modes
@@ -42,21 +41,24 @@ Method 1: Full Automation (Recommended)
 
 Terminal 1: Start Engine
 
-Bash
+
 python src/engine.py
+
 Goal: Runs the background service for real-time monitoring.
 
 Terminal 2: Start Dashboard
 
-Bash
+
 python -m streamlit run ui/app.py
+
 Goal: Launches the UI for manual control and analytics.
 
 Method 2: Manual Control
 Single Command:
 
-Bash
+
 python -m streamlit run ui/app.py
+
 Goal: Fast testing without background automation.
 
 ✅ Setup Complete: All steps are finished. Your FileFlow organizer is now active and ready to keep your system clean.
