@@ -3,6 +3,19 @@ FileFlow is a robust Python-based background utility that monitors your system's
 
 "Let the system do the boring work!"
 
+📺 Visual Comparison
+Before: Files are messy and scattered.
+
+<p align="left">
+<img src="https://github.com/user-attachments/assets/1750e68a-3258-4889-b99f-c936e3825cde" width="600" alt="Before">
+</p>
+
+After: Files are sorted into clean folders.
+
+<p align="left">
+<img src="https://github.com/user-attachments/assets/2fa5015d-950d-41f5-ab06-185c7223c298" width="600" alt="After">
+</p>
+
 The Workflow:
 1. The system operates through a decoupled architecture to ensure stability and performance. Follow these points strictly for the intended experience:
 2. Monitoring: The engine.py process initializes a file system observer that watches for FileCreated or FileMoved events.
