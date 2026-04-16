@@ -34,6 +34,7 @@ Step 2: Install Requirements
 
 Bash
 pip install -r requirements.txt
+
 ▶️ Execution Modes
 Method 1: Full Automation (Recommended)
 Terminal 1: Start Engine
