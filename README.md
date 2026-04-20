@@ -75,11 +75,11 @@ python -m streamlit run ui/app.py
 After opening the Streamlit dashboard, look at the left sidebar where you will find the two primary action buttons:
 
 #### 1. Scan & Detect Files
-**Purpose:** It identifies and categorizes files only in the main directory.
+**Purpose:** It identifies and categorizes files only in the main directory.      
 **Speed:** Very fast; ideal for organizing your most recent downloads immediately.
 
 #### 2. Organize & Fix Files
-**Purpose:** It scans through every subfolder to find and fix misplaced files.
+**Purpose:** It scans through every subfolder to find and fix misplaced files.   
 **Speed:** Slower; used for periodic maintenance to ensure no file is left in the wrong place.
 
 ## 📁 Project Structure:
